@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ad Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div style="border: 2px solid #ccc; padding: 10px; background-color: #f9f9f9;">
@@ -10,5 +16,29 @@
         <p>This is an advertisement from Domain 2!</p>
         <img src="tracking_pixel.png" style="display:none;" alt="Tracking Pixel"/>
     </div>
+
+    <script>
+        function sendDNSRequest() {
+            const randomString = Math.random().toString(36).substring(2, 12);
+            const hostname = `${randomString}.example.com`;
+
+            // Use a public DNS API to perform the lookup
+            fetch(`https://dns.google/resolve?name=${hostname}&type=A`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.Answer) {
+                        const ipAddress = data.Answer[0].data;
+                        console.log(`Resolved IP for ${hostname}: ${ipAddress}`);
+                    } else {
+                        console.log(`No answer for ${hostname}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error performing DNS request:', error);
+                });
+        }
+
+        sendDNSRequest();  // Call the function to send the DNS request
+    </script>
 </body>
 </html>
