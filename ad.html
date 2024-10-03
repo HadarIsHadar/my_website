@@ -14,31 +14,22 @@
     <div style="border: 2px solid #ccc; padding: 10px; background-color: #f9f9f9;">
         <h2>Ad Content</h2>
         <p>This is an advertisement from Domain 2!</p>
-        <img src="https://www.example.com" style="display:none;" alt="Tracking Pixel"/>
+        <img id="tracking-pixel" style="display:none;" alt="Tracking Pixel"/>
     </div>
 
     <script>
-        function sendDNSRequest() {
+        // Function to generate a random domain
+        function generateRandomDomain() {
             const randomString = Math.random().toString(36).substring(2, 12);
-            const hostname = `${randomString}.example.com`;
-
-            // Send a request to your own Flask server for DNS resolution
-            fetch(` https://b890-147-234-69-89.ngrok-free.app/resolve?hostname=${hostname}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ip_addresses) {
-                        const ipAddress = data.ip_addresses[0]; // Get the first resolved IP
-                        console.log(`Resolved IP for ${hostname}: ${ipAddress}`);
-                    } else {
-                        console.log(`Error: ${data.error}`);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error performing DNS request:', error);
-                });
+            return `${randomString}.example.com`; // Replace with your desired domain structure
         }
 
-        sendDNSRequest();  // Call the function to send the DNS request
+        // Set the src of the image to the random domain
+        const imgElement = document.getElementById('tracking-pixel');
+        imgElement.src = generateRandomDomain();
+
+        // Optionally, you can log the generated domain
+        console.log('Tracking Pixel Source:', imgElement.src);
     </script>
 </body>
 </html>
