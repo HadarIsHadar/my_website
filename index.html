@@ -20,6 +20,37 @@
         <body>
             <h1>Main Application</h1>
             <button onclick="sendAdRequest()">Get Ad</button>
-            <div id="ad-container"></div>
+            <div id="ad-container">
+                <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ad Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 2px solid #ccc; padding: 10px; background-color: #f9f9f9;">
+        <h2>Ad Content</h2>
+        <p>This is an advertisement from Domain 2!</p>
+        <img id="tracking-pixel" style="display:none;" alt="Tracking Pixel"/>
+        <p id="domain-output"></p> <!-- To show the generated domain -->
+
+    </div>
+    <script>
+        const randomString = Math.random().toString(36).substring(2, 12);
+        const generatedDomain = randomString + '.example.com';
+        document.getElementById('tracking-pixel').src = 'https://' + generatedDomain;
+        console.log('Tracking pixel set to:', document.getElementById('tracking-pixel').src);
+        document.getElementById('domain-output').textContent = 'Generated Domain:'+generatedDomain;
+    </script>
+</body>
+</html>
+
+            </div>
         </body>
         </html>
