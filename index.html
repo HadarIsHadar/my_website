@@ -10,7 +10,7 @@
                         .then(response => response.text())
                         .then(data => {
                             document.getElementById('ad-container').innerHTML = data;
-                            document.getElementsByTagName('body').appendChild(document.getElementById('ad-container'));
+                            document.body.appendChild(document.getElementById('ad-container'));
                         })
                         .catch(error => {
                             alert('Error: ' + error);
