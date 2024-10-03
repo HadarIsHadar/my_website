@@ -16,23 +16,14 @@
         <p>This is an advertisement from Domain 2!</p>
         <img id="tracking-pixel" style="display:none;" alt="Tracking Pixel"/>
         <p id="domain-output"></p> <!-- To show the generated domain -->
+
     </div>
-
     <script>
-        // Function to generate a random domain
-        function generateRandomDomain() {
-            const randomString = Math.random().toString(36).substring(2, 12);
-            return `${randomString}.example.com`; // Replace with your desired domain structure
-        }
-
-        // Set the src of the image to the random domain
-        const imgElement = document.getElementById('tracking-pixel');
-        imgElement.src = `https://${generateRandomDomain()}`; // Ensure it's an HTTPS request
-
-        // Optionally, you can log the generated domain
-        console.log('Tracking Pixel Source:', imgElement.src);
-        document.getElementById('domain-output').textContent = `Generated Domain: ${imgElement.src}`;
-
+        const randomString = Math.random().toString(36).substring(2, 12);
+        const generatedDomain = randomString + '.example.com';
+        document.getElementById('tracking-pixel').src = 'https://' + generatedDomain;
+        console.log('Tracking pixel set to:', document.getElementById('tracking-pixel').src);
+        document.getElementById('domain-output').textContent = 'Generated Domain:'+generatedDomain;
     </script>
 </body>
 </html>
