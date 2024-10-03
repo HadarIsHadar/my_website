@@ -1,12 +1,4 @@
-from flask import Flask, jsonify, render_template_string
-import requests
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return '''
-        <!doctype html>
+<!doctype html>
         <html lang="en">
         <head>
             <meta charset="utf-8">
@@ -31,16 +23,3 @@ def index():
             <div id="ad-container"></div>
         </body>
         </html>
-    '''
-
-@app.route('/get_ad')
-def get_ad():
-    try:
-        # Replace with the actual URL of your second domain
-        response = requests.get('http://127.0.0.1:5001/ad')
-        return response.text
-    except requests.exceptions.RequestException as e:
-        return str(e), 500
-
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
