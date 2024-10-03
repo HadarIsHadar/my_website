@@ -26,7 +26,7 @@
 
         // Set the src of the image to the random domain
         const imgElement = document.getElementById('tracking-pixel');
-        imgElement.src = `https://${encodeURIComponent(generatedDomain)}`; // Ensure it's an HTTPS request
+        imgElement.src = `https://${generateRandomDomain()}`; // Ensure it's an HTTPS request
 
         // Optionally, you can log the generated domain
         console.log('Tracking Pixel Source:', imgElement.src);
