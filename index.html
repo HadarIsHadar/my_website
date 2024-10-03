@@ -6,7 +6,7 @@
             <title>Main Application</title>
             <script>
                 function sendAdRequest() {
-                    fetch('/get_ad')
+                    fetch('/ad')
                         .then(response => response.text())
                         .then(data => {
                             document.getElementById('ad-container').innerHTML = data;
