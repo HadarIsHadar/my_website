@@ -4,31 +4,20 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <title>Main Application</title>
-            <script>
-                function sendAdRequest() {
-                    fetch('https://hadarishadar.github.io/my_website/mini_ad')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.getElementById('ad-container').innerHTML = data;
-document.getElementById('ad-container').innerHTML = data;
-
-                // Create a temporary DOM element to parse the scripts
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = data;
-
-                // Find and execute any <script> tags
-                const scripts = tempDiv.getElementsByTagName('script');
-                for (let script of scripts) {
-                    const newScript = document.createElement('script');
-                    newScript.text = script.innerHTML; // Use text for inline scripts
-                    document.body.appendChild(newScript); // Append to body to execute
-                }
-                                        })
-                        .catch(error => {
-                            alert('Error: ' + error);
-                        });
-                }
-            </script>
+        <img src="https://hadarishadar.github.io/my_website/mini_ad"/>
+<!--            <script>-->
+<!--                function sendAdRequest() {-->
+<!--                    fetch('https://hadarishadar.github.io/my_website/mini_ad')-->
+<!--                        .then(response => response.text())-->
+<!--                        .then(data => {-->
+<!--                            document.getElementById('ad-container').innerHTML = data;-->
+<!--                            console.log(document.getElementById('ad-container').innerHTML);-->
+<!--                        })-->
+<!--                        .catch(error => {-->
+<!--                            alert('Error: ' + error);-->
+<!--                        });-->
+<!--                }-->
+<!--            </script>-->
         </head>
         <body>
             <h1>Main Application</h1>
