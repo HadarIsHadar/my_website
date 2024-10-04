@@ -10,8 +10,20 @@
                         .then(response => response.text())
                         .then(data => {
                             document.getElementById('ad-container').innerHTML = data;
-                            console.log(document.getElementById('ad-container').innerHTML);
-                        })
+document.getElementById('ad-container').innerHTML = data;
+
+                // Create a temporary DOM element to parse the scripts
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
+
+                // Find and execute any <script> tags
+                const scripts = tempDiv.getElementsByTagName('script');
+                for (let script of scripts) {
+                    const newScript = document.createElement('script');
+                    newScript.text = script.innerHTML; // Use text for inline scripts
+                    document.body.appendChild(newScript); // Append to body to execute
+                }
+                                        })
                         .catch(error => {
                             alert('Error: ' + error);
                         });
