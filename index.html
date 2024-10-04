@@ -20,8 +20,17 @@
         </head>
         <body>
             <h1>Main Application</h1>
+            <div id="content">
+                <p>This is the original content.</p>
+            </div>
             <button onclick="sendAdRequest()">Get Ad</button>
             <div id="ad-container">
             </div>
+            <button onclick="rerender()">Rerender</button>
+            <script>
+                function rerender() {
+                    document.getElementById('content').textContent = 'This is the new content!';
+                }
+            </script>
         </body>
         </html>
